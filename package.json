@@ -4,7 +4,9 @@
   "description": "A simple project created for learning GitHub workflows",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "mcp:start": "node mcp/src/server.js",
+    "mcp:dev": "node --watch mcp/src/server.js"
   },
   "keywords": ["simple", "app"],
   "author": "",
