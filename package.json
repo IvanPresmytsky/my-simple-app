@@ -6,9 +6,22 @@
   "scripts": {
     "start": "node index.js",
     "mcp:start": "node mcp/src/server.js",
-    "mcp:dev": "node --watch mcp/src/server.js"
+    "mcp:dev": "node --watch mcp/src/server.js",
+    "gateway:start": "node gateway/src/server.mjs",
+    "gateway:dev": "node --watch gateway/src/server.mjs",
+    "web:dev": "npm --prefix web run dev",
+    "dev": "concurrently -k \"npm run gateway:start\" \"npm run web:dev\""
   },
-  "keywords": ["simple", "app"],
+  "keywords": [
+    "simple",
+    "app"
+  ],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
 }

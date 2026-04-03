@@ -1,0 +1,256 @@
+:root {
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  color: #1f2a37;
+  background: #f5f7fa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f5f7fa;
+}
+
+.chat-page {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  height: 100vh;
+  gap: 0;
+}
+
+.chat-main {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.chat-header {
+  padding: 14px 20px;
+  border-bottom: 1px solid #e5ecf3;
+  background: linear-gradient(to bottom, #f9fbfd, #f5f8fc);
+}
+
+.chat-header h1 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.header-controls {
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr auto 1fr;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.header-controls label {
+  font-weight: 600;
+  color: #4b5b70;
+}
+
+.header-controls select,
+.header-controls input {
+  border: 1px solid #bfd0e4;
+  border-radius: 6px;
+  padding: 5px 8px;
+  font: inherit;
+  background: #fff;
+}
+
+.header-controls input:disabled,
+.header-controls select:disabled {
+  opacity: 0.6;
+  background: #f5f8fc;
+}
+
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.empty-state {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 16px;
+}
+
+.message {
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.message:hover {
+  background: #f0f4f9;
+}
+
+.message-user {
+  justify-self: flex-end;
+  align-self: flex-end;
+  max-width: 70%;
+  background: linear-gradient(135deg, #0f5fd7 0%, #0880ce 100%);
+  color: #fff;
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+
+.message-user .message-role {
+  display: none;
+}
+
+.message-assistant {
+  max-width: 85%;
+  background: #f0f4f9;
+  color: #1f2a37;
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+
+.message-error {
+  max-width: 85%;
+  background: #fef2f2;
+  color: #a72a2a;
+  border-radius: 12px;
+  padding: 10px 14px;
+  border-left: 3px solid #dc2626;
+}
+
+.message-role {
+  font-size: 11px;
+  font-weight: 700;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.message-content {
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.debug-indicator {
+  position: absolute;
+  top: -18px;
+  right: 8px;
+  color: #0f5fd7;
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.input-form {
+  display: flex;
+  gap: 10px;
+  padding: 16px 20px;
+  border-top: 1px solid #e5ecf3;
+  background: #fafbfc;
+}
+
+.input-form textarea {
+  flex: 1;
+  border: 1px solid #bfd0e4;
+  border-radius: 8px;
+  padding: 10px;
+  font: inherit;
+  resize: none;
+  background: #fff;
+}
+
+.input-form button {
+  border: 0;
+  border-radius: 8px;
+  background: linear-gradient(120deg, #0f5fd7, #0880ce);
+  color: #fff;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.input-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.debug-panel {
+  border-left: 1px solid #e5ecf3;
+  background: #0a1f33;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.debug-header {
+  padding: 10px 12px;
+  border-bottom: 1px solid #1e3a52;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.debug-header h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 13px;
+}
+
+.debug-header button {
+  background: 0;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0;
+}
+
+.debug-panel pre {
+  flex: 1;
+  margin: 0;
+  padding: 10px 12px;
+  color: #d8e6f4;
+  overflow: auto;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.debug-panel-empty {
+  border-left: 1px solid #e5ecf3;
+  background: #f9fbfd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 12px;
+  padding: 16px;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .chat-page {
+    grid-template-columns: 1fr;
+  }
+
+  .debug-panel,
+  .debug-panel-empty {
+    display: none;
+  }
+
+  .message-assistant,
+  .message-error,
+  .message-user {
+    max-width: 100% !important;
+  }
+}

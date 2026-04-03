@@ -1,13 +1,11 @@
 {
   "servers": {
-    "gemma-local-bridge": {
+    "gemmaLocalBridge": {
       "type": "stdio",
-      "command": "npm",
+      "command": "/Users/ivan/.nvm/versions/node/v24.14.1/bin/node",
       "args": [
-        "run",
-        "mcp:start"
+        "/Users/ivan/dev/my-simple-app/mcp/src/server.js"
       ],
-      "cwd": "${workspaceFolder}",
       "env": {
         "OLLAMA_BASE_URL": "http://127.0.0.1:11434",
         "MODEL_FAST": "gemma4:e4b",
