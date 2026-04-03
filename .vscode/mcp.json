@@ -2,9 +2,10 @@
   "servers": {
     "gemma-local-bridge": {
       "type": "stdio",
-      "command": "/Users/ivan/.nvm/versions/node/v24.14.1/bin/node",
+      "command": "npm",
       "args": [
-        "mcp/src/server.js"
+        "run",
+        "mcp:start"
       ],
       "cwd": "${workspaceFolder}",
       "env": {
